@@ -145,7 +145,7 @@ Vue.component('product-tabs', {
 
 Vue.component('product-review', {
     template: `
-        <form class="review-form" @submit.prevent="onSubmit">
+    <form class="review-form" @submit.prevent="onSubmit">
         
         <p class="error" v-if="errors.length">
             <b>Please correct the following error(s):</b>
@@ -183,19 +183,19 @@ Vue.component('product-review', {
     `,
     data() {
         return {
-        name: null,
-        review: null,
-        rating: null,
-        errors: []
+            name: null,
+            review: null,
+            rating: null,
+            errors: []
         }
     },
     methods: {
         onSubmit() {
-        if (this.name && this.review && this.rating) {
+        if (this.name && this.review && this.rating) { 
             let productReview = {
-            name: this.name,
-            review: this.review,
-            rating: this.rating
+                name: this.name,
+                review: this.review,
+                rating: this.rating
             }
             eventBus.$emit('review-submitted', productReview)
             this.name = null
