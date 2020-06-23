@@ -23,23 +23,14 @@
 
 
 <script>
-import EventService from '@/services/EventService.js';
+import { mapState } from 'vuex'
+
 export default {
     props: ['id'],
-    data() {
-        return {
-            event: {}
-        }
+    created() {  
+        this.$store.dispatch('fetchEvent', this.id)        
     },
-    created() {
-        EventService.getEvent(this.id)
-            .then(response => {
-                this.event = response.data
-            })
-            .catch(error => {
-                console.log('There was an error:' + error.response)
-            })            
-    }
+    computed: mapState(['event'])
 }
 </script>
 
