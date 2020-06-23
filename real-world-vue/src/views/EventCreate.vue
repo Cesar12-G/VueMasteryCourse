@@ -63,9 +63,7 @@ export default {
                     params: { id: this.event.id }
                 })
                 this.event = this.createFreshEventObject()
-            }).catch(() => {
-                console.log('There is a problem creating your event')    
-            })    
+            }).catch(() => {})    
         },
         createFreshEventObject() {
             const user = this.$store.state.user.user
